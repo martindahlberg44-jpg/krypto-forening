@@ -1,0 +1,124 @@
+/* Grundstil */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #000814;
+    color: #e0e0e0;
+}
+
+/* Header & navigation */
+header {
+    background: linear-gradient(90deg, #001f3f, #003566);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+header h1 {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+/* Navigation list */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: #00b4d8;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #90e0ef;
+}
+
+/* Hamburgermeny */
+.menu-icon {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Sektioner */
+.section {
+    padding: 80px 20px;
+    text-align: center;
+    min-height: 60vh;
+    background: linear-gradient(180deg, #000814, #001d3d);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+h2 {
+    color: #00b4d8;
+    margin-bottom: 20px;
+}
+
+/* Knapp */
+button {
+    background-color: #00b4d8;
+    color: #001d3d;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #90e0ef;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #001d3d;
+    color: #90e0ef;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+}
+
+/* ===== Responsiv design ===== */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #001d3d;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
