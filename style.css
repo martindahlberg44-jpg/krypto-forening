@@ -1,4 +1,6 @@
-/* Grundstil */
+/* ==========================
+   GRUNDSTIL
+========================== */
 body {
     margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
@@ -6,7 +8,9 @@ body {
     color: #e0e0e0;
 }
 
-/* Header & navigation */
+/* ==========================
+   HEADER & NAVIGATION
+========================== */
 header {
     background: linear-gradient(90deg, #001f3f, #003566);
     color: #fff;
@@ -18,11 +22,33 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    flex-wrap: wrap;
 }
 
-header h1 {
-    font-size: 1.4rem;
+/* --- Logotyp och text --- */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 60px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.logo-text h1 {
+    margin: 0;
+    font-size: 1.6rem;
     letter-spacing: 1px;
+    color: #ffcc00;
+}
+
+.logo-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #ffaa00;
 }
 
 /* Navigation list */
@@ -53,7 +79,9 @@ nav a:hover {
     user-select: none;
 }
 
-/* Sektioner */
+/* ==========================
+   SEKTIONER
+========================== */
 .section {
     padding: 80px 20px;
     text-align: center;
@@ -72,7 +100,9 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Knapp */
+/* ==========================
+   KNAPP
+========================== */
 button {
     background-color: #00b4d8;
     color: #001d3d;
@@ -91,7 +121,9 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Footer */
+/* ==========================
+   FOOTER
+========================== */
 footer {
     background-color: #001d3d;
     color: #90e0ef;
@@ -100,18 +132,32 @@ footer {
     font-size: 14px;
 }
 
-/* ===== Responsiv design ===== */
+/* ==========================
+   RESPONSIV DESIGN
+========================== */
 @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-container {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
     nav ul {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 80px;
         right: 0;
         background-color: #001d3d;
         width: 100%;
         text-align: center;
         padding: 10px 0;
+        border-top: 1px solid #00b4d8;
     }
 
     nav ul.show {
@@ -120,5 +166,11 @@ footer {
 
     .menu-icon {
         display: block;
+        align-self: flex-end;
+    }
+
+    nav a {
+        display: block;
+        padding: 10px 0;
     }
 }
