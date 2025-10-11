@@ -326,6 +326,21 @@ button:active {
     transform: translateY(-2px);
 }
 
+/* Focus state för knapp */
+button:focus {
+    outline: 3px solid #FF69B4;
+    outline-offset: 4px;
+}
+
+button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+button:focus-visible {
+    outline: 3px solid #FF69B4;
+    outline-offset: 4px;
+}
+
 a {
     text-decoration: none;
 }
@@ -513,6 +528,16 @@ a {
     border-color: rgba(65, 105, 225, 0.4);
 }
 
+/* Focus states för kort */
+.feature-card:focus {
+    outline: 2px solid #FF69B4;
+    outline-offset: 4px;
+}
+
+.feature-card:focus:not(:focus-visible) {
+    outline: none;
+}
+
 #contact strong {
     color: #4169E1;
     font-size: 1.1rem;
@@ -598,53 +623,88 @@ footer {
         display: none;
     }
 
-    /* Hero section mobil */
+    /* Hero section mobil - CENTRERAD */
     #home {
-        padding: 100px 20px 60px;
+        padding: 100px 25px 60px;
+    }
+
+    #home .content {
+        text-align: center;
+        max-width: 100%;
+        padding: 0 10px;
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        text-align: center;
+        padding: 0 10px;
     }
 
     #home h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
+        line-height: 1.3;
     }
 
     #home p {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+        text-align: center;
+        padding: 0 5px;
     }
 
     .section {
-        padding: 60px 20px;
+        padding: 60px 15px;
         min-height: auto;
     }
 
-    /* MOBILE CAROUSEL FÖR FEATURE CARDS */
+    .section .content {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .section p {
+        text-align: center;
+        padding: 0 5px;
+    }
+
+    /* FEATURE CARDS - BÄTTRE CENTRERING */
+    .features-section {
+        padding: 60px 0;
+    }
+
+    .features-section .content {
+        padding: 0;
+    }
+
+    .section-subtitle {
+        padding: 0 25px;
+        text-align: center;
+    }
+
     .feature-cards {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         gap: 20px;
         padding: 20px 0;
-        margin: 30px -20px;
-        padding-left: 20px;
-        padding-right: 20px;
+        margin: 30px 0;
+        padding-left: calc((100vw - 300px) / 2);
+        padding-right: calc((100vw - 300px) / 2);
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
+        scrollbar-width: none;
     }
 
     .feature-cards::-webkit-scrollbar {
-        display: none; /* Chrome, Safari */
+        display: none;
     }
 
     .feature-card {
-        flex: 0 0 85%;
+        flex: 0 0 300px;
+        width: 300px;
         scroll-snap-align: center;
-        max-width: 350px;
+        margin: 0;
     }
 
-    /* Scroll indicator dots */
+    /* Scroll indicator dots - CENTRERAD */
     .features-section::after {
         content: '';
         display: block;
@@ -660,37 +720,58 @@ footer {
             rgba(65, 105, 225, 0.3) 75%);
         border-radius: 10px;
         margin: 20px auto 0;
-        max-width: 150px;
+        max-width: 120px;
     }
 
     #about .content,
     #contact .content {
-        padding: 35px 25px;
+        padding: 40px 25px;
+        text-align: center;
+        margin: 0 10px;
+    }
+
+    #about .content p,
+    #contact .content p {
+        text-align: center;
     }
 
     button {
-        padding: 14px 32px;
-        font-size: 1rem;
-        width: 100%;
-        max-width: 300px;
+        padding: 16px 40px;
+        font-size: 1.05rem;
+        width: auto;
+        min-width: 250px;
+        max-width: 90%;
+        margin: 20px auto;
+        display: block;
     }
 
     .feature-icon {
         width: 70px;
         height: 70px;
         font-size: 2.2rem;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .feature-card h3 {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
+        text-align: center;
     }
 
     .feature-card p {
         font-size: 1rem;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    /* Footer centrerad */
+    footer {
+        text-align: center;
+        padding: 25px 20px;
     }
 }
 
-/* Extra small devices */
+/* Extra small devices - iPhone SE, etc */
 @media (max-width: 380px) {
     .logo-text h1 {
         font-size: 1.1rem;
@@ -705,10 +786,25 @@ footer {
     }
 
     #home h2 {
-        font-size: 1.8rem;
+        font-size: 1.75rem;
+    }
+
+    #home p {
+        font-size: 1rem;
     }
 
     .feature-card {
-        flex: 0 0 90%;
+        flex: 0 0 280px;
+        width: 280px;
+    }
+
+    .feature-cards {
+        padding-left: calc((100vw - 280px) / 2);
+        padding-right: calc((100vw - 280px) / 2);
+    }
+
+    button {
+        min-width: 220px;
+        padding: 14px 30px;
     }
 }
