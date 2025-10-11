@@ -1,11 +1,11 @@
 // ==========================
-// "Bli medlem"-knapp
+// 1. BLI MEDLEM-KNAPP
 // ==========================
 const joinBtn = document.getElementById("joinBtn");
 const joinMsg = document.getElementById("joinMsg");
 
 if (joinBtn && joinMsg) {
-    joinBtn.addEventListener("click", function() {
+    joinBtn.addEventListener("click", () => {
         joinMsg.textContent = "Tack för ditt intresse!";
         joinMsg.style.color = "#FF69B4";
         joinMsg.style.marginTop = "15px";
@@ -15,88 +15,43 @@ if (joinBtn && joinMsg) {
 }
 
 // ==========================
-// Hamburgermeny-funktion
+// 2. HAMBURGERMENY
 // ==========================
 const menuToggle = document.getElementById("menu-toggle");
 const navMenu = document.querySelector("nav ul");
-
-if (menuToggle && navMenu) {
-    menuToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("show");
-    });
-} else {
-    console.warn("Hamburgermeny-element hittades inte");
-}
-
-// Stäng menyn när man klickar på en länk (mobil)
 const navLinks = document.querySelectorAll("nav a");
 
-if (navLinks.length > 0) {
-    navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            if (window.innerWidth <= 768 && navMenu) {
-                navMenu.classList.remove("show");
-            }
-        });
-    });
-}
+menuToggle?.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+});
+
 navLinks.forEach(link => {
     link.addEventListener("click", () => {
-        if (window.innerWidth <= 768) {
-            navMenu.classList.remove("show");
-        }
+        if (window.innerWidth <= 768) navMenu.classList.remove("show");
     });
 });
 
 // ==========================
-// 1. SMOOTH SCROLL
+// 3. SMOOTH SCROLL & AKTIV NAVIGATION
 // ==========================
 navLinks.forEach(link => {
     link.addEventListener("click", function(e) {
         e.preventDefault();
-        
         const targetId = this.getAttribute("href");
         const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-            const headerOffset = 80; // Höjd på header
-            const elementPosition = targetSection.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: "smooth"
-            });
-        }
+        if (!targetSection) return;
+
+        const headerOffset = 80;
+        const elementPosition = targetSection.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
     });
 });
 
-// ==========================
-// 2. SCROLL ANIMATIONS (Fade-in effect)
-// ==========================
-const observerOptions = {
-    threshold: 0.15,
-    rootMargin: "0px 0px -50px 0px"
-};
-
-const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("fade-in-visible");
-        }
-    });
-}, observerOptions);
-
-// Observera alla sektioner och feature cards
-const sectionsToAnimate = document.querySelectorAll(".section, .feature-card");
-sectionsToAnimate.forEach(section => {
-    section.classList.add("fade-in-element");
-    observer.observe(section);
-});
-
-// ==========================
-// 3. AKTIV NAVIGATION (Highlight current section)
-// ==========================
 const sections = document.querySelectorAll(".section");
 
 function setActiveNav() {
@@ -106,7 +61,6 @@ function setActiveNav() {
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
             current = section.getAttribute("id");
         }
@@ -120,19 +74,7 @@ function setActiveNav() {
     });
 }
 
-// Kör när man scrollar (throttled för bättre performance)
-let scrollTimeout;
-window.addEventListener("scroll", () => {
-    if (scrollTimeout) {
-        window.cancelAnimationFrame(scrollTimeout);
-    }
-    
-    scrollTimeout = window.requestAnimationFrame(() => {
-        setActiveNav();
-    });
-});
-
-// Kör en gång vid sidladdning
+window.addEventListener("scroll", () => window.requestAnimationFrame(setActiveNav));
 window.addEventListener("load", setActiveNav);
 
 // ==========================
@@ -141,32 +83,47 @@ window.addEventListener("load", setActiveNav);
 const scrollProgress = document.getElementById("scroll-progress");
 
 function updateScrollProgress() {
-    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (window.pageYOffset / windowHeight) * 100;
-    scrollProgress.style.width = scrolled + "%";
+    const totalHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    scrollProgress.style.width = (window.pageYOffset / totalHeight) * 100 + "%";
 }
 
-window.addEventListener("scroll", updateScrollProgress);
+window.addEventListener("scroll", () => window.requestAnimationFrame(updateScrollProgress));
 window.addEventListener("load", updateScrollProgress);
 
 // ==========================
-// 5. MOBILE FEATURE CARDS CAROUSEL
+// 5. FADE-IN ANIMATION
 // ==========================
-// Smooth scroll snap för feature cards på mobil
-const featureCards = document.querySelector('.feature-cards');
+const observerOptions = {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+};
 
-if (featureCards && window.innerWidth <= 768) {
-    let isScrolling = false;
-    
-    featureCards.addEventListener('scroll', () => {
-        if (!isScrolling) {
-            window.requestAnimationFrame(() => {
-                isScrolling = false;
-            });
-            isScrolling = true;
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in-visible");
         }
     });
-    
-    // Touch-friendly: förbättra scroll experience
+}, observerOptions);
+
+document.querySelectorAll(".section, .feature-card").forEach(el => {
+    el.classList.add("fade-in-element");
+    observer.observe(el);
+});
+
+// ==========================
+// 6. FEATURE CARDS SCROLL (Mobil) MED SNAP TO CENTER
+// ==========================
+const featureCards = document.querySelector(".feature-cards");
+
+if (featureCards) {
+    // Scroll snap behavior via JS
     featureCards.style.scrollBehavior = 'smooth';
-}
+    featureCards.style.scrollSnapType = 'x mandatory';
+
+    let isScrolling;
+    featureCards.addEventListener('scroll', () => {
+        window.clearTimeout(isScrolling);
+
+        isScrolling = setTimeout(() => {
+            const cardWidth = featureCards.querySelector('.feature-card').offsetWidt
