@@ -1,12 +1,18 @@
 // ==========================
 // "Bli medlem"-knapp
 // ==========================
-document.getElementById("joinBtn").addEventListener("click", function() {
-    const msg = document.getElementById("joinMsg");
-    msg.textContent = "Tack för ditt intresse!";
-    msg.style.color = "#FF69B4";
-    msg.style.marginTop = "15px";
-});
+const joinBtn = document.getElementById("joinBtn");
+const joinMsg = document.getElementById("joinMsg");
+
+if (joinBtn && joinMsg) {
+    joinBtn.addEventListener("click", function() {
+        joinMsg.textContent = "Tack för ditt intresse!";
+        joinMsg.style.color = "#FF69B4";
+        joinMsg.style.marginTop = "15px";
+    });
+} else {
+    console.warn("Bli medlem-knapp eller meddelande hittades inte");
+}
 
 // ==========================
 // Hamburgermeny-funktion
@@ -14,12 +20,26 @@ document.getElementById("joinBtn").addEventListener("click", function() {
 const menuToggle = document.getElementById("menu-toggle");
 const navMenu = document.querySelector("nav ul");
 
-menuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("show");
-});
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+    });
+} else {
+    console.warn("Hamburgermeny-element hittades inte");
+}
 
 // Stäng menyn när man klickar på en länk (mobil)
 const navLinks = document.querySelectorAll("nav a");
+
+if (navLinks.length > 0) {
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (window.innerWidth <= 768 && navMenu) {
+                navMenu.classList.remove("show");
+            }
+        });
+    });
+}
 navLinks.forEach(link => {
     link.addEventListener("click", () => {
         if (window.innerWidth <= 768) {
@@ -114,3 +134,39 @@ window.addEventListener("scroll", () => {
 
 // Kör en gång vid sidladdning
 window.addEventListener("load", setActiveNav);
+
+// ==========================
+// 4. SCROLL PROGRESS BAR
+// ==========================
+const scrollProgress = document.getElementById("scroll-progress");
+
+function updateScrollProgress() {
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (window.pageYOffset / windowHeight) * 100;
+    scrollProgress.style.width = scrolled + "%";
+}
+
+window.addEventListener("scroll", updateScrollProgress);
+window.addEventListener("load", updateScrollProgress);
+
+// ==========================
+// 5. MOBILE FEATURE CARDS CAROUSEL
+// ==========================
+// Smooth scroll snap för feature cards på mobil
+const featureCards = document.querySelector('.feature-cards');
+
+if (featureCards && window.innerWidth <= 768) {
+    let isScrolling = false;
+    
+    featureCards.addEventListener('scroll', () => {
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                isScrolling = false;
+            });
+            isScrolling = true;
+        }
+    });
+    
+    // Touch-friendly: förbättra scroll experience
+    featureCards.style.scrollBehavior = 'smooth';
+}

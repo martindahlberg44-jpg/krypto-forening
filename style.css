@@ -7,6 +7,19 @@
     box-sizing: border-box;
 }
 
+/* Scroll Progress Bar */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FF69B4, #4169E1);
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.1s ease;
+    box-shadow: 0 2px 10px rgba(255, 105, 180, 0.5);
+}
+
 body {
     margin: 0;
     font-family: 'Tektur', sans-serif;
@@ -135,6 +148,23 @@ nav a:hover::after {
     width: 100%;
 }
 
+/* Focus states för tillgänglighet */
+nav a:focus {
+    outline: 2px solid #FF69B4;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+nav a:focus:not(:focus-visible) {
+    outline: none;
+}
+
+nav a:focus-visible {
+    outline: 2px solid #FF69B4;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
 nav a.active {
     color: #FF69B4;
     font-weight: 700;
@@ -191,6 +221,28 @@ nav a.active::after {
         transform: translateY(0);
     }
 }
+
+/* Scroll animations */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-element.fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation för feature cards */
+.feature-card.fade-in-element {
+    transition-delay: calc(var(--card-index, 0) * 0.1s);
+}
+
+.feature-card:nth-child(1) { --card-index: 0; }
+.feature-card:nth-child(2) { --card-index: 1; }
+.feature-card:nth-child(3) { --card-index: 2; }
+.feature-card:nth-child(4) { --card-index: 3; }
 
 h2 {
     background: linear-gradient(135deg, #FF69B4 0%, #4169E1 100%);
@@ -489,19 +541,32 @@ footer {
 ========================== */
 @media (max-width: 768px) {
     header {
-        padding: 15px 25px;
+        padding: 15px 20px;
     }
 
     .logo-container {
-        width: 100%;
-        justify-content: space-between;
+        width: auto;
+        justify-content: flex-start;
+        flex: 1;
+    }
+
+    .logo {
+        width: 45px;
+    }
+
+    .logo-text h1 {
+        font-size: 1.3rem;
+    }
+
+    .logo-text p {
+        font-size: 0.75rem;
     }
 
     nav ul {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 85px;
+        top: 75px;
         left: 0;
         right: 0;
         background: rgba(255, 255, 255, 0.98);
@@ -520,10 +585,8 @@ footer {
 
     .menu-icon {
         display: block;
-        position: absolute;
-        right: 25px;
-        top: 50%;
-        transform: translateY(-50%);
+        position: relative;
+        right: 0;
     }
 
     nav a {
@@ -535,17 +598,69 @@ footer {
         display: none;
     }
 
+    /* Hero section mobil */
+    #home {
+        padding: 100px 20px 60px;
+    }
+
     h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     #home h2 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+    }
+
+    #home p {
+        font-size: 1.1rem;
     }
 
     .section {
         padding: 60px 20px;
-        min-height: 50vh;
+        min-height: auto;
+    }
+
+    /* MOBILE CAROUSEL FÖR FEATURE CARDS */
+    .feature-cards {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding: 20px 0;
+        margin: 30px -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .feature-cards::-webkit-scrollbar {
+        display: none; /* Chrome, Safari */
+    }
+
+    .feature-card {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+        max-width: 350px;
+    }
+
+    /* Scroll indicator dots */
+    .features-section::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 8px;
+        background: linear-gradient(90deg, 
+            rgba(255, 105, 180, 0.3) 0%, 
+            rgba(255, 105, 180, 0.3) 25%, 
+            rgba(65, 105, 225, 0.3) 25%, 
+            rgba(65, 105, 225, 0.3) 50%,
+            rgba(255, 105, 180, 0.3) 50%,
+            rgba(255, 105, 180, 0.3) 75%,
+            rgba(65, 105, 225, 0.3) 75%);
+        border-radius: 10px;
+        margin: 20px auto 0;
+        max-width: 150px;
     }
 
     #about .content,
@@ -556,5 +671,44 @@ footer {
     button {
         padding: 14px 32px;
         font-size: 1rem;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.2rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .feature-card p {
+        font-size: 1rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 380px) {
+    .logo-text h1 {
+        font-size: 1.1rem;
+    }
+
+    .logo-text p {
+        font-size: 0.7rem;
+    }
+
+    .logo {
+        width: 40px;
+    }
+
+    #home h2 {
+        font-size: 1.8rem;
+    }
+
+    .feature-card {
+        flex: 0 0 90%;
     }
 }
