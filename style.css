@@ -982,12 +982,14 @@ padding-right: max(20px, calc((100vw - 300px) / 2));
   width: 56px;              /* större på desktop */
   height: 56px;
   padding: 0;
+  line-height: 1;
   background: linear-gradient(135deg, #FF69B4, #FF1493);
   color: #fff;
   font-size: 26px;          /* större ikon på desktop */
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   border: none;
   border-radius: 50%;
   cursor: pointer;
@@ -1011,6 +1013,7 @@ padding-right: max(20px, calc((100vw - 300px) / 2));
     font-size: 18px;
     padding: 0 !important;
     line-height: 1 !important;
+    box-sizing: border-box;
     bottom: 15px;
     right: 15px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
