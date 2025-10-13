@@ -817,22 +817,66 @@ footer {
     }
 
     .feature-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 2.2rem;
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 20px;
     }
 
     .feature-card h3 {
-        font-size: 1.4rem;
+        font-size: 1.25rem;
         text-align: center;
+        margin-bottom: 12px;
     }
 
     .feature-card p {
-        font-size: 1rem;
+        font-size: 0.95rem;
         text-align: center;
         line-height: 1.6;
+    }
+
+    /* NEWS SECTION - MOBILE */
+    .news-section {
+        padding: 60px 0;
+    }
+
+    .news-section .content {
+        padding: 0;
+    }
+
+    .news-cards {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 15px;
+        padding: 20px 0;
+        margin: 30px 0;
+        padding-left: max(20px, calc((100vw - 300px) / 2));
+        padding-right: max(20px, calc((100vw - 300px) / 2));
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .news-cards::-webkit-scrollbar {
+        display: none;
+    }
+
+    .news-card {
+        flex: 0 0 300px;
+        width: 300px;
+        scroll-snap-align: center;
+        margin: 0;
+    }
+
+    .news-loading {
+        flex: 0 0 300px;
+        width: 300px;
+    }
+
+    .news-attribution {
+        padding: 0 25px;
     }
 
     /* Footer centrerad */
@@ -865,13 +909,45 @@ footer {
     }
 
     .feature-card {
-        flex: 0 0 280px;
-        width: 280px;
+        flex: 0 0 260px;
+        width: 260px;
+        padding: 25px 20px;
     }
 
     .feature-cards {
-        padding-left: calc((100vw - 280px) / 2);
-        padding-right: calc((100vw - 280px) / 2);
+        padding-left: max(15px, calc((100vw - 260px) / 2));
+        padding-right: max(15px, calc((100vw - 260px) / 2));
+        gap: 12px;
+    }
+
+    .feature-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.8rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.15rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+
+    .news-card {
+        flex: 0 0 280px;
+        width: 280px;
+        padding: 25px 20px;
+    }
+
+    .news-cards {
+        padding-left: max(15px, calc((100vw - 280px) / 2));
+        padding-right: max(15px, calc((100vw - 280px) / 2));
+    }
+
+    .news-loading {
+        flex: 0 0 280px;
+        width: 280px;
     }
 
     button {
@@ -884,4 +960,91 @@ footer {
         padding: 12px 28px;
         font-size: 0.95rem;
     }
+}
+
+/* iPhone 14 Pro Max och liknande (428px) */
+@media (min-width: 390px) and (max-width: 430px) {
+    .feature-card {
+        flex: 0 0 300px;
+        width: 300px;
+    }
+
+    .feature-cards {
+        padding-left: max(20px, calc((100vw - 300px) / 2));
+        padding-right: max(20px, calc((100vw - 300px) / 2));
+    }
+}
+/* ========== DARK MODE KNAPP ========== */
+.theme-toggle {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #222;
+    color: #FFD700;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1) rotate(10deg);
+    background: #333;
+}
+
+/* Dark mode styling */
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode header,
+body.dark-mode .section,
+body.dark-mode footer,
+body.dark-mode .feature-card,
+body.dark-mode #about .content,
+body.dark-mode #contact .content {
+    background: rgba(30, 30, 30, 0.9);
+    color: #f1f1f1;
+    border-color: rgba(255, 105, 180, 0.3);
+}
+
+body.dark-mode a {
+    color: #FF69B4;
+}
+
+body.dark-mode button,
+body.dark-mode .secondary-button {
+    color: #fff;
+}
+
+/* Dark mode toggle button */
+.theme-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #FF69B4;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 105, 180, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10000;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.6);
 }
