@@ -1023,28 +1023,36 @@ body.dark-mode .secondary-button {
     color: #fff;
 }
 
-/* Dark mode toggle button */
-.theme-toggle {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background: #FF69B4;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    font-size: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 5px 20px rgba(255, 105, 180, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 10000;
+/* 🌓 Dark mode toggle – grundstil */
+#themeToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #FF69B4, #FF1493);
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, background 0.3s ease;
+  z-index: 1000;
 }
 
-.theme-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.6);
+/* Hover-effekt (för desktop) */
+#themeToggle:hover {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, #FF1493, #FF69B4);
 }
+
+/* 📱 Mobilanpassning */
+@media (max-width: 768px) {
+  #themeToggle {
+    font-size: 16px;       /* mindre ikon */
+    padding: 8px;          /* mindre knapp */
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
