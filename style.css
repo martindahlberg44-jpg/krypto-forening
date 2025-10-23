@@ -23,7 +23,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.15) 0%, transparent 50%),
     radial-gradient(circle at 80% 70%, rgba(135, 206, 250, 0.15) 0%, transparent 50%),
     radial-gradient(circle at 50% 50%, rgba(65, 105, 225, 0.08) 0%, transparent 60%);
@@ -32,8 +32,15 @@ body::before {
 }
 
 @keyframes gradientShift {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 @keyframes fadeInUp {
@@ -41,6 +48,7 @@ body::before {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -48,19 +56,25 @@ body::before {
 }
 
 @keyframes fadeIn {
-  from { 
+  from {
     opacity: 0;
     transform: translateY(-10px);
   }
-  to { 
+
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
 }
 
 a {
@@ -307,7 +321,7 @@ button {
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin-top: 25px;
-  box-shadow: 
+  box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   position: relative;
@@ -321,7 +335,7 @@ button {
 .instagram-link:hover {
   transform: translateY(-5px);
   border-color: rgba(214, 36, 159, 0.5);
-  box-shadow: 
+  box-shadow:
     0 20px 50px rgba(214, 36, 159, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
@@ -384,7 +398,7 @@ footer {
 #themeToggle {
   position: fixed;
   bottom: 25px;
-  right: 25px;
+  left: 25px;
   width: 56px;
   height: 56px;
   padding: 0;
@@ -506,7 +520,7 @@ body.dark-mode .partner-cta h3 {
   -webkit-text-fill-color: transparent;
 }
 
-body.dark-mode .partner-cta > p,
+body.dark-mode .partner-cta>p,
 body.dark-mode .partner-benefit span:last-child {
   color: #e5e7eb;
 }
@@ -521,6 +535,29 @@ body.dark-mode .partner-benefit:hover {
   border-color: rgba(255, 105, 180, 0.3);
 }
 
+.partner-logos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+/* FOR DESKTOP */
+@media screen and (min-width: 768px) {
+  .partner-logos {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin: 50px 0 80px;
+    justify-content: center;
+    align-items: center;
+    /* max-width: 900px;
+    margin-left: auto;
+    margin-right: auto; */
+  }
+}
+
 /* ==========================
   RESPONSIVE DESIGN
 ========================== */
@@ -532,6 +569,7 @@ body.dark-mode .partner-benefit:hover {
   .logo-container {
     width: auto;
     justify-content: flex-start;
+    gap: 20px;
     flex: 1;
   }
 
@@ -668,14 +706,14 @@ body.dark-mode .partner-benefit:hover {
     display: block;
     width: 100%;
     height: 8px;
-    background: linear-gradient(90deg, 
-      rgba(255, 105, 180, 0.3) 0%, 
-      rgba(255, 105, 180, 0.3) 25%, 
-      rgba(65, 105, 225, 0.3) 25%, 
-      rgba(65, 105, 225, 0.3) 50%,
-      rgba(255, 105, 180, 0.3) 50%,
-      rgba(255, 105, 180, 0.3) 75%,
-      rgba(65, 105, 225, 0.3) 75%);
+    background: linear-gradient(90deg,
+        rgba(255, 105, 180, 0.3) 0%,
+        rgba(255, 105, 180, 0.3) 25%,
+        rgba(65, 105, 225, 0.3) 25%,
+        rgba(65, 105, 225, 0.3) 50%,
+        rgba(255, 105, 180, 0.3) 50%,
+        rgba(255, 105, 180, 0.3) 75%,
+        rgba(65, 105, 225, 0.3) 75%);
     border-radius: 10px;
     margin: 20px auto 0;
     max-width: 120px;
@@ -689,10 +727,7 @@ body.dark-mode .partner-benefit:hover {
     padding: 0 10px;
   }
 
-  .partner-logos {
-    display: flex;
-    flex-direction: column;
-  }
+
 
   .partner-logos::-webkit-scrollbar {
     display: none;
@@ -736,7 +771,7 @@ body.dark-mode .partner-benefit:hover {
     margin-bottom: 18px;
   }
 
-  .partner-cta > p {
+  .partner-cta>p {
     font-size: 1.05rem;
     margin-bottom: 30px;
   }
@@ -858,7 +893,7 @@ body.dark-mode .partner-benefit:hover {
     margin: 0 !important;
     line-height: 1 !important;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   }
 
@@ -903,115 +938,6 @@ body.dark-mode .partner-benefit:hover {
   }
 }
 
-@media (max-width: 380px) {
-  .logo-text h1 {
-    font-size: 1.1rem;
-  }
-
-  .logo-text p {
-    font-size: 0.7rem;
-  }
-
-  .logo {
-    width: 40px;
-  }
-
-  #home h2 {
-    font-size: 1.75rem;
-  }
-
-  #home p {
-    font-size: 1rem;
-  }
-
-  .feature-card {
-    flex: 0 0 260px;
-    width: 260px;
-    padding: 25px 20px;
-  }
-
-  .feature-cards {
-    padding-left: max(15px, calc((100vw - 260px) / 2));
-    padding-right: max(15px, calc((100vw - 260px) / 2));
-    gap: 12px;
-  }
-
-  .feature-icon {
-    width: 55px;
-    height: 55px;
-    font-size: 1.8rem;
-  }
-
-  .feature-card h3 {
-    font-size: 1.15rem;
-  }
-
-  .feature-card p {
-    font-size: 0.9rem;
-  }
-
-  .partner-logo-placeholder {
-    flex: 0 0 230px;
-    width: 230px;
-    min-height: 110px;
-    padding: 30px 18px;
-  }
-
-  .partner-logos {
-    padding-left: max(15px, calc((100vw - 230px) / 2));
-    padding-right: max(15px, calc((100vw - 230px) / 2));
-  }
-
-  .partner-referral-info {
-    padding: 30px 20px;
-  }
-
-  .partner-referral-info h4 {
-    font-size: 1.3rem;
-  }
-
-  .partner-referral-info p {
-    font-size: 0.95rem;
-  }
-
-  .partner-cta {
-    padding: 35px 20px;
-  }
-
-  .partner-cta-icon {
-    width: 70px;
-    height: 70px;
-    font-size: 2.2rem;
-  }
-
-  .partner-cta h3 {
-    font-size: 1.4rem;
-  }
-
-  .partner-cta > p {
-    font-size: 1rem;
-  }
-
-  .partner-benefit span:last-child {
-    font-size: 0.9rem;
-  }
-
-  .partner-cta-button {
-    padding: 14px 30px;
-    font-size: 1rem;
-  }
-
-  button {
-    min-width: 220px;
-    padding: 14px 30px;
-  }
-
-  .secondary-button {
-    min-width: 200px;
-    padding: 12px 28px;
-    font-size: 0.95rem;
-  }
-}
 
 @media (min-width: 390px) and (max-width: 430px) {
   .feature-card {
@@ -1029,11 +955,8 @@ body.dark-mode .partner-benefit:hover {
     width: 270px;
   }
 
-  .partner-logos {
-    padding-left: max(20px, calc((100vw - 270px) / 2));
-    padding-right: max(20px, calc((100vw - 270px) / 2));
-  }
-} 
+
+}
 
 button::before {
   content: '';
@@ -1056,7 +979,7 @@ button:hover::before {
 button:hover {
   background: linear-gradient(135deg, #FF1493, #FF69B4);
   transform: translateY(-4px);
-  box-shadow: 
+  box-shadow:
     0 20px 40px rgba(255, 105, 180, 0.45),
     0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -1146,7 +1069,7 @@ button:focus-visible {
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  box-shadow: 
+  box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
@@ -1170,7 +1093,7 @@ button:focus-visible {
 .feature-card:hover {
   transform: translateY(-10px);
   border-color: rgba(255, 105, 180, 0.4);
-  box-shadow: 
+  box-shadow:
     0 20px 50px rgba(255, 105, 180, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
@@ -1179,10 +1102,21 @@ button:focus-visible {
   transition-delay: calc(var(--card-index, 0) * 0.1s);
 }
 
-.feature-card:nth-child(1) { --card-index: 0; }
-.feature-card:nth-child(2) { --card-index: 1; }
-.feature-card:nth-child(3) { --card-index: 2; }
-.feature-card:nth-child(4) { --card-index: 3; }
+.feature-card:nth-child(1) {
+  --card-index: 0;
+}
+
+.feature-card:nth-child(2) {
+  --card-index: 1;
+}
+
+.feature-card:nth-child(3) {
+  --card-index: 2;
+}
+
+.feature-card:nth-child(4) {
+  --card-index: 3;
+}
 
 .feature-icon {
   width: 80px;
@@ -1235,7 +1169,7 @@ button:focus-visible {
   padding: 60px;
   border-radius: 32px;
   border: 2px solid rgba(255, 182, 193, 0.3);
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(255, 105, 180, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   transition: all 0.4s ease;
@@ -1243,7 +1177,7 @@ button:focus-visible {
 
 #about .content:hover {
   transform: translateY(-5px);
-  box-shadow: 
+  box-shadow:
     0 30px 80px rgba(255, 105, 180, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   border-color: rgba(255, 105, 180, 0.4);
@@ -1261,15 +1195,6 @@ button:focus-visible {
   max-width: 1000px;
 }
 
-.partner-logos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  margin: 50px 0 80px;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .partner-logo-placeholder {
   background: rgba(255, 255, 255, 0.8);
@@ -1320,7 +1245,7 @@ button:focus-visible {
   padding: 40px 45px;
   border-radius: 28px;
   border: 2px solid rgba(65, 105, 225, 0.25);
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(65, 105, 225, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   margin-bottom: 60px;
@@ -1329,7 +1254,7 @@ button:focus-visible {
 
 .partner-referral-info:hover {
   transform: translateY(-5px);
-  box-shadow: 
+  box-shadow:
     0 30px 80px rgba(65, 105, 225, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   border-color: rgba(65, 105, 225, 0.4);
@@ -1370,7 +1295,7 @@ button:focus-visible {
   padding: 60px 50px;
   border-radius: 32px;
   border: 2px solid rgba(255, 182, 193, 0.3);
-  box-shadow: 
+  box-shadow:
     0 30px 80px rgba(255, 105, 180, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   position: relative;
@@ -1391,7 +1316,7 @@ button:focus-visible {
 
 .partner-cta:hover {
   transform: translateY(-5px);
-  box-shadow: 
+  box-shadow:
     0 40px 100px rgba(255, 105, 180, 0.18),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   border-color: rgba(255, 105, 180, 0.5);
@@ -1429,7 +1354,7 @@ button:focus-visible {
   z-index: 1;
 }
 
-.partner-cta > p {
+.partner-cta>p {
   color: #4b5563;
   font-size: 1.15rem;
   line-height: 1.8;
@@ -1487,7 +1412,7 @@ button:focus-visible {
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin-top: 20px;
-  box-shadow: 
+  box-shadow:
     0 15px 40px rgba(65, 105, 225, 0.35),
     0 1px 2px rgba(0, 0, 0, 0.1);
   font-family: 'Tektur', sans-serif;
@@ -1517,7 +1442,7 @@ button:focus-visible {
 .partner-cta-button:hover {
   background: linear-gradient(135deg, #FF69B4, #4169E1);
   transform: translateY(-4px);
-  box-shadow: 
+  box-shadow:
     0 25px 50px rgba(65, 105, 225, 0.45),
     0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -1540,7 +1465,7 @@ button:focus-visible {
   padding: 60px;
   border-radius: 32px;
   border: 2px solid rgba(65, 105, 225, 0.25);
-  box-shadow: 
+  box-shadow:
     0 20px 60px rgba(65, 105, 225, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
   transition: all 0.4s ease;
@@ -1561,7 +1486,7 @@ button:focus-visible {
 
 #contact .content:hover {
   transform: translateY(-5px);
-  box-shadow: 
+  box-shadow:
     0 30px 80px rgba(65, 105, 225, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
   border-color: rgba(65, 105, 225, 0.4);
