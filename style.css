@@ -1208,6 +1208,7 @@ button:focus-visible {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   min-height: 150px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  aspect-ratio: 1/1;
 }
 
 .partner-logo-placeholder span {
