@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <script src="https://helpdesk.karlbergsolutions.se/embed.js" data-pub="68fa4f306255afdb19b29043"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Inlägg - Kryptokom</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+    
+    <!-- Markdown parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+    <!-- YAML parser for frontmatter -->
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    
+    <style>
+        /* Extra styling för hela blogginlägget */
+        .post-full-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+        
+        .post-full-content h2 {
+            font-size: 2rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .post-full-content h3 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #1a1a2e;
+        }
+        
+        .post-full-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .post-full-content ul,
+        .post-full-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .post-full-content li {
+            margin: 10px 0;
+            line-height: 1.7;
+        }
+        
+        .post-full-content blockquote {
+            border-left: 4px solid #FF69B4;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #4b5563;
+            background: rgba(255, 105, 180, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .post-full-content code {
+            background: rgba(255, 105, 180, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .post-full-content pre {
+            background: #1a1a2e;
+            color: #f1f1f1;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        .post-full-content pre code {
+            background: none;
+            padding: 0;
+            color: #f1f1f1;
+        }
+        
+        .post-full-content a {
+            color: #4169E1;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+        
+        .post-full-content a:hover {
+            color: #FF69B4;
+        }
+        
+        .post-full-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        
+        .back-to-blog {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #4169E1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border: 2px solid #4169E1;
+            border-radius: 25px;
+        }
+        
+        .back-to-blog:hover {
+            background: #4169E1;
+            color: white;
+            transform: translateX(-5px);
+        }
+        
+        .post-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .post-image-full {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Dark mode för post-content */
+        body.dark-mode .post-full-content h3 {
+            color: #f1f1f1;
+        }
+        
+        body.dark-mode .post-full-content blockquote {
+            background: rgba(255, 105, 180, 0.1);
+            color: #d1d5db;
+        }
+        
+        body.dark-mode .post-full-content code {
+            background: rgba(255, 105, 180, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .post-full-content {
+                padding: 30px 20px;
+            }
+            
+            .post-full-content h2 {
+                font-size: 1.6rem;
+            }
+            
+            .post-full-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .post-image-full {
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="scroll-progress"></div>
+
+    <header class="site-header">
+        <div class="logo-container">
+            <img src="../images/logotype.png" alt="Kryptokom logotyp" class="logo">
+            <div class="logo-text">
+                <h1>Kryptokom</h1>
+                <p>Framtidens ekonomi börjar här</p>
+            </div>
+        </div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="../index.html">Hem</a></li>
+                <li><a href="../index.html#features">Varför gå med?</a></li>
+                <li><a href="../index.html#about">Om oss</a></li>
+                <li><a href="../index.html#partners">För företag</a></li>
+                <li><a href="../blogg/" class="active">Blogg</a></li>
+                <li><a href="../index.html#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+        <div id="menu-toggle" class="menu-icon">☰</div>
+    </header>
+
+    <section class="section">
+        <div class="content">
+            <a href="../blogg/" class="back-to-blog">← Tillbaka till bloggen</a>
+            
+            <div id="post-container">
+                <div class="loading-message">
+                    <p>Laddar inlägg...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Kryptokom</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        // Ladda och visa hela blogginlägget
+        (async function() {
+            const postContainer = document.getElementById('post-container');
+            
+            // Hämta slug från URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug');
+            
+            if (!slug) {
+                postContainer.innerHTML = '<p style="color: #FF69B4;">Inget inlägg specificerat.</p>';
+                return;
+            }
+            
+            try {
+                // Ladda posts.json för att hitta rätt fil
+                const response = await fetch('posts.json');
+                const posts = await response.json();
+                
+                // Hitta rätt post
+                const post = posts.find(p => p.slug === slug);
+                
+                if (!post) {
+                    postContainer.innerHTML = '<p style="color: #FF69B4;">Inlägget kunde inte hittas.</p>';
+                    return;
+                }
+                
+                // Ladda markdown-filen
+                const mdResponse = await fetch(`inlagg/${post.filename}`);
+                const mdText = await mdResponse.text();
+                
+                // Separera frontmatter och content
+                const parts = mdText.split('---');
+                if (parts.length < 3) {
+                    postContainer.innerHTML = '<p style="color: #FF69B4;">Fel format på inlägget.</p>';
+                    return;
+                }
+                
+                // Parse frontmatter
+                const frontmatter = jsyaml.load(parts[1]);
+                const content = parts.slice(2).join('---').trim();
+                
+                // Konvertera markdown till HTML
+                const htmlContent = marked.parse(content);
+                
+                // Formatera datum
+                const date = new Date(frontmatter.date);
+                const formattedDate = date.toLocaleDateString('sv-SE', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                // Skapa taggar HTML
+                const tagsHTML = frontmatter.tags
+                    .map(tag => `<span class="tag">${tag}</span>`)
+                    .join('');
+                
+                // Uppdatera sidrubrik
+                document.getElementById('page-title').textContent = `${frontmatter.title} - Kryptokom`;
+                
+                // Bygg ut hela inlägget
+                postContainer.innerHTML = `
+                    <article class="blog-post">
+                        <div class="post-header">
+                            <img src="bilder/${frontmatter.image}" 
+                                 alt="${frontmatter.title}" 
+                                 class="post-image-full"
+                                 onerror="this.style.display='none'">
+                            
+                            <div class="blog-meta" style="justify-content: center; margin-bottom: 20px;">
+                                <span class="blog-date">📅 ${formattedDate}</span>
+                                <span class="blog-category">${frontmatter.category}</span>
+                            </div>
+                            
+                            <h2 style="font-size: 3rem; margin-bottom: 30px;">${frontmatter.title}</h2>
+                            
+                            <div class="blog-tags" style="justify-content: center;">
+                                ${tagsHTML}
+                            </div>
+                        </div>
+                        
+                        <div class="post-full-content">
+                            ${htmlContent}
+                        </div>
+                    </article>
+                `;
+                
+                // Lägg till fade-in animation
+                setTimeout(() => {
+                    postContainer.querySelector('.blog-post').classList.add('fade-in-visible');
+                }, 100);
+                
+            } catch (error) {
+                console.error('Error loading post:', error);
+                postContainer.innerHTML = '<p style="color: #FF69B4;">Kunde inte ladda inlägget. Försök igen senare.</p>';
+            }
+        })();
+    </script>
+</body>
+
+</html>

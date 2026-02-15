@@ -81,7 +81,7 @@ const observer = new IntersectionObserver(function(entries) {
     });
 }, observerOptions);
 
-const sectionsToAnimate = document.querySelectorAll(".section, .feature-card");
+const sectionsToAnimate = document.querySelectorAll(".section, .feature-card, .blog-post");
 
 if (sectionsToAnimate.length > 0) {
     sectionsToAnimate.forEach(section => {
