@@ -3,7 +3,7 @@ title: "Educate Together 2026"
 date: "2026-01-23"
 category: "Diskussionskväll"
 image: "2026-01-23-Educate-Together-2026.jpg"
-tags: ["Ekonomi", "Utbildning", "Digitalvaluta som konecpt"] 
+tags: ["Ekonomi", "Utbildning", "Digitalvaluta som koncept"] 
 ---
 
 Kan en digital valuta utan bank och stat verkligen förändra världsekonomin? Under Educate Together 2026 utmanade vi våra egna perspektiv kring Bitcoin, Ethereum och framtidens pengar.
