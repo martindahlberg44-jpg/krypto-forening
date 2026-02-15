@@ -47,20 +47,26 @@ if (navLinks.length > 0) {
 if (navLinks.length > 0) {
     navLinks.forEach(link => {
         link.addEventListener("click", function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute("href");
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                const headerOffset = 80;
-                const elementPosition = targetSection.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
-            } else {
-                console.warn(`Sektion ${targetId} hittades inte`);
+            
+            // Kolla om det är en hash-länk (börjar med #)
+            if (targetId && targetId.startsWith("#")) {
+                e.preventDefault(); // Bara förhindra default för hash-länkar
+                
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    const headerOffset = 80;
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                } else {
+                    console.warn(`Sektion ${targetId} hittades inte`);
+                }
             }
+            // Om det INTE är en hash-länk (t.ex. blogg/), låt den fungera normalt
         });
     });
 }
@@ -113,7 +119,9 @@ function setActiveNav() {
 
     navLinks.forEach(link => {
         link.classList.remove("active");
-        if (link.getAttribute("href") === `#${current}`) {
+        const href = link.getAttribute("href");
+        // Bara sätt active på hash-länkar
+        if (href && href.startsWith("#") && href === `#${current}`) {
             link.classList.add("active");
         }
     });
