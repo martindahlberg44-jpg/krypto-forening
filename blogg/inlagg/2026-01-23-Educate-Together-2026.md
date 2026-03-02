@@ -2,7 +2,7 @@
 title: "Educate Together 2026"
 date: "2026-01-23"
 category: "Diskussionskväll"
-image: "2026-01-23-Educate-Together-2026.jpg"
+image: "2026-01-23-Educate-Together-2026.JPG"
 tags: ["Ekonomi", "Utbildning", "Digitalvaluta som koncept"]
 ---
 
