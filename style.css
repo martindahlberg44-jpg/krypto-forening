@@ -923,6 +923,11 @@ body.dark-mode .tag:hover {
     padding: 35px 20px;
   }
 
+  .partner-logo-placeholder img.partner-logo {
+    width: 140px;
+    height: 140px;
+  }
+
   .partner-referral-info {
     padding: 35px 25px;
     margin: 0 10px 50px;
@@ -1460,10 +1465,8 @@ button:focus-visible {
 }
 
 .partner-logo-placeholder img.partner-logo {
-  max-width: 140px;
-  max-height: 80px;
-  width: auto;
-  height: auto;
+  width: 180px;
+  height: 180px;
   object-fit: contain;
   display: block;
   margin: 0 auto;
