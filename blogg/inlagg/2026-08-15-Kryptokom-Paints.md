@@ -5,7 +5,6 @@ category: "Campus"
 image: "crypto-painting.jpeg"
 tags: ["Måla märke", "Kryptofågeln"]
 ---
-
 ## Ny termin
 Det är en ny termin på Linköpings universitet och för första gången i historien målar vi kryptofågeln i märkesbacken! Varje dag framöver kommer tusentals cyklandes studenter trampa förbi Kryptokoms märke och förundras över den uppåtblickande fågeln. Workshops, gästföreläsningar och krypto-seminarium ska planeras och utföras under hösten och kommande vår. 
 
@@ -32,4 +31,4 @@ De andra fåglarna kunde knappt tro sina ögon. Hur kunde den minsta och till sy
 
 Men tävlingen var avgjord. Den lilla fågeln hade flugit högst och skulle därför krönas till fåglarnas konung.
 
-Och så fick den lilla fågeln namnet **kungsfågeln** . Det var inte för sin storlek eller styrka, utan för sin list, sitt mod och sin förmåga att överlista även den mäktigaste av fåglar som var orsaken till namnet.
+Och så fick den lilla fågeln namnet **kungsfågeln**. Det var inte för sin storlek eller styrka, utan för sin list, sitt mod och sin förmåga att överlista även den mäktigaste av fåglar som var orsaken till namnet.
