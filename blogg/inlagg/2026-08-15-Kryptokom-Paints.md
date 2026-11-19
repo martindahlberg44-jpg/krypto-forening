@@ -11,7 +11,6 @@ Det är en ny termin på Linköpings universitet och för första gången i hist
 Workshops, gästföreläsningar och kryptoseminarier ska planeras och genomföras under hösten och kommande vår. Men precis som kungsfågeln, som enligt sägnen överlistade den mäktiga kungsörnen, tror vi att storlek inte är det som avgör hur långt man kan nå.
 
 Vi är en liten förening med stora ambitioner. Vår förhoppning är att väcka nyfikenhet, sprida kunskap och skapa en mötesplats för alla som vill förstå framtidens finansiella och teknologiska landskap.
-
 ## Sagan om kungsfågeln
 Historien om kungsfågeln kommer från gammal europeisk folktro. Det var en tävling bland djurrikets alla fåglar om vem som kunde flyga högst. Samtliga fåglar försökte flaxa så högt de bara kunde, men de visste redan från början att kungsörnen, den malligaste och stoltaste av dem alla, med största sannolikhet skulle vinna.
 
